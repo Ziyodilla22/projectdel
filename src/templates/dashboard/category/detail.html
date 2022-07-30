@@ -1,0 +1,44 @@
+{% extends 'dashboard/index.html' %}
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Recipes List</h4>
+            <p class="category">Recipe To`plami</p>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                <th>Key</th>
+                <th>Value</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td>{{ root.id }}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ root.content }}</td>
+                    </tr>
+                        <td>Slug</td>
+                        <td>{{ root.slug }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <a href="{% url 'dashboard_ctg_edit' pk=root.id %}">
+        <button type="submit" class="btn btn-success btn-wd">Edit</button>
+    <a/>
+    <a href="{% url 'dashboard_ctg_list' %}">
+        <button type="button" class="btn btn-default btn-wd">Back</button>
+    </a>
+    <a href="{% url 'dashboard_ctg_delete' delete=root.id %}">
+        <button type="button" class="btn btn-danger btn-wd">Delete</button>
+    </a>
+
+{% endblock %}
